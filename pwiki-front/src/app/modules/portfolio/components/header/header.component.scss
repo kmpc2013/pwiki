@@ -1,0 +1,19 @@
+.menu {
+  //content: "";
+  display: flex;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, rgba(33,73,91,1) 0%, rgba(37,44,54,1) 100%);
+  align-items: center;
+  justify-content: right;
+  a p {
+    font-size: 14px;
+    color: var(--p04);
+    padding: 7px 15px 0 0;
+    &:hover{
+      color: var(--p05);
+      transition: 0.5s;
+    }
+  }
+}

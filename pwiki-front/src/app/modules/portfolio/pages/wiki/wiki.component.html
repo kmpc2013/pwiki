@@ -1,0 +1,15 @@
+<app-header />
+<main>
+  @defer(on viewport){
+  <app-projects />
+  } @placeholder {
+  <section>
+    <h2>Carregando todos os projetos desenvolvidos...</h2>
+  </section>
+  } @error {
+  <section>
+    <h2>Lamento, mas ocorreu um erro inesperado, tente novamente...</h2>
+  </section>
+  }
+</main>
+<app-footer />

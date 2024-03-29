@@ -1,0 +1,136 @@
+// :host {
+//   margin-top: 25px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   flex-direction: column;
+
+//   h2 {
+//     text-align: center;
+//     margin: 0 0 25px 0;
+//   }
+//   details {
+//     overflow: hidden;
+//     margin-top: 10px;
+//     background: var(--p03);
+//     border-radius: 7px;
+
+//     summary,
+//     article {
+//       padding: 10px 20px;
+//       transition: 500ms;
+//     }
+//     summary {
+//       cursor: pointer;
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       background: var(--p01);
+//       p {
+//         font-size: 14px;
+//         color: var(--p04);
+//         padding: 0;
+//         margin: 0;
+//         display: flex;
+//         flex-direction: column;
+//       }
+//     }
+//     &[open]{
+//         summary{
+//             &::after{
+//                 content: url("../../../../../assets/img/chevron-up.png");
+//                 margin-top: 5px;
+//             }
+//             border-radius: 7px 7px 0 0;
+//         }
+//     }
+//     &:not([open]){
+//         summary{
+//             &::after{
+//                 content: url("../../../../../assets/img/chevron-down.png");
+//                 margin-top: 5px;
+//             }
+//             border-radius: 7px 7px 0 0;
+//         }
+//     }
+//   }
+// }
+:host {
+  margin-top: 25px;
+  padding: 25px 0 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  div {
+    width: 1600px;
+  }
+  h2 {
+    text-align: center;
+    margin: 0 0 25px 0;
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    li {
+      flex: 15%;
+      width: 160px;
+      height: 100px;
+      button {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background: var(--white);
+        border: 2px solid var(--p01);
+        border-radius: 7px;
+        transition: 0.5s;
+        padding: 0 0 0 0;
+        &:hover {
+          background: var(--p05);
+        }
+        img {
+          margin: 0 0 0 0;
+          height: 75px;
+          width: 75px;
+        }
+        .itemType {
+          margin: 0 0 0 0;
+          font-size: 12px;
+          width: 100%;
+        }
+        .itemSortTitle {
+          margin-top: 5px;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+  @media (max-width: 1600px) {
+    ul li {
+      flex: 30%;
+    }
+    div {
+      width: 1000px;
+    }
+  }
+  @media (max-width: 1020px) {
+    ul li {
+      flex: 40%;
+    }
+    div {
+      width: 730px;
+    }
+  }
+  @media (max-width: 750px) {
+    ul li {
+      flex: 100%;
+    }
+    div {
+      width: 400px;
+    }
+  }
+}

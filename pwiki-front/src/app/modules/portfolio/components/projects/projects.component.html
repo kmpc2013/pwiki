@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Documentos</h2>
+  <div class="search-container">
+    <form>
+      <figure>
+        <img
+          class="icon-search"
+          src="assets/icons/search.svg"
+          alt="Icone de lupa para pesquisa"
+          onclick="handleKeyPress($event)" 
+          style="cursor: pointer;"
+        />
+        <input
+          type="text"
+          placeholder="Buscar documento"
+          (input)="search($event)"
+          (keydown)="handleKeyPress($event)"
+        />
+      </figure>
+    </form>
+  </div>
+  @for(item of arrayFiltered; track item;){
+  <details>
+    <summary>
+      <p class="itemType" [style.background]="setTypeDocColor(item.type)">
+        {{ item.type }}
+      </p>
+      <p class="itemTitle">
+        {{ item.title }}
+      </p>
+    </summary>
+    <article [innerHTML]="item.descr"></article>
+    <a [href]="item.link" target="_blank" class="saibaMaisButton">Saiba mais</a>
+    <!-- <iframe src="https://docs.google.com/document/d/e/2PACX-1vSM0JiPD_Rx4rz_2er4HKLeB6Jz8pUBp5Pp6_xSWbvA6mJwhUvN4uwXvXu9tJmf7bJGz8RjGpXyIle3/pub?embedded=true" width="1000px" height="1000px"></iframe> -->
+  </details>
+  }
+</div>

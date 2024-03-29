@@ -1,0 +1,128 @@
+.page-header {
+  border-bottom: none;
+  border-radius: 15px;
+  margin: 0px 15px 0px 15px;
+  background: var(--p03);
+  //background: linear-gradient(90deg, rgba(179,204,213,1) 0%, rgba(56,188,238,1) 13%, rgba(179,204,213,1) 100%);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+header,
+aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  img {
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+  }
+  h1 {
+    display: inline-block;
+  }
+}
+
+aside {
+  p {
+    text-align: center;
+    margin-top: 15px;
+  }
+  nav ul,
+  section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+  }
+  nav {
+    margin: 20px 0;
+    ul li a {
+      width: 250px;
+    }
+  }
+  section {
+    margin-bottom: 15px;
+    figure {
+      width: 250px;
+      height: 50px;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      border: 2px solid var(--p01);
+      border-radius: 100px;
+      transition: 0.5s;
+      &:hover {
+        background: var(--p05);
+        transition: 1s;
+      }
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+
+        p {
+          margin: 3px 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  aside nav ul,
+  section {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 15px;
+  }
+  section figure,
+  aside nav ul li {
+    &,
+    a {
+      width: 100%;
+    }
+  }
+}
+
+.knowledge {
+  margin: 0px;
+  padding: 5px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h2 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  ul {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: wrap;
+    gap: 20px;
+    flex-wrap: wrap;
+    li {
+      width: 50px;
+      height: 50px;
+      background: var(--p01);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 7px;
+    }
+  }
+}

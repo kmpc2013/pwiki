@@ -1,0 +1,69 @@
+version: '3.4'
+name: pwiki
+
+networks:
+  pwikinet:
+    driver:
+      bridge
+
+services:
+  database:
+    image: mysql
+    container_name: database
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    # ports:
+    #   - 3306:3306
+    networks:
+      - pwikinet
+    volumes:
+        - ./pwiki-back/others/init.sql:/data/application/init.sql
+    command: --init-file /data/application/init.sql
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+        reservations:
+          memory: 50M
+
+  pwikiback:
+    build: ./pwiki-back
+    image: kmpc2013/pwikiback:v1
+    container_name: pwikiback
+    restart: on-failure
+    environment:
+      NODE_ENV: production
+    # ports:
+    #   - 3000:3000
+    networks:
+      - pwikinet
+    depends_on:
+      - "database"
+    deploy:
+      resources:
+        limits:
+          memory: 100M
+        reservations:
+          memory: 50M
+  
+  pwikifront:
+    build: ./pwiki-front
+    image: kmpc2013/pwikifront:v1
+    container_name: pwikifront
+    restart: on-failure
+    environment:
+      NODE_ENV: production
+    ports:
+      - 8081:80
+    networks:
+      - pwikinet
+    depends_on:
+      - "pwikiback"
+    deploy:
+      resources:
+        limits:
+          memory: 100M
+        reservations:
+          memory: 50M
+

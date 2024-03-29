@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Experiências</h2>
+  <ul>
+    @for(item of arrayExperiences(); track item){
+    <li>
+      <button (click)="openDialog(item)">
+        <p class="itemSortTitle">{{ item.summary.strong }}</p>
+        {{ item.summary.p }}
+      </button>
+    </li>
+    }
+  </ul>
+</div>
