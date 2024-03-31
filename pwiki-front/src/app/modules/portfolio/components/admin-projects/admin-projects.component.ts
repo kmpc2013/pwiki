@@ -127,8 +127,6 @@ export class DialogDelete {
   imports: [MatButtonModule, MatDialogActions, MatDialogContent],
 })
 export class DialogEditDialog {
-  formGroup: UntypedFormBuilder;
-
   constructor(
     public dialogRef: MatDialogRef<DialogEditDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
@@ -145,7 +143,7 @@ export class DialogEditDialog {
 
   editDoc(): void {
     this.dialogRef.close();
-    this.BackService.editDocs(this.formGroup.value).subscribe()
+    // this.BackService.editDocs(this.formGroup.value).subscribe()
     window.location.reload()
   }
 }

@@ -12,8 +12,8 @@ export const routes: Routes = [
     path: 'wiki',
     component: WikiComponent,
   },
-  // {
-  //   path: 'admin/wiki',
-  //   component: AdminProjectsComponent,
-  // }
+  {
+    path: 'admin/wiki',
+    component: AdminProjectsComponent,
+  }
 ];
