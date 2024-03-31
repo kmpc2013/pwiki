@@ -18,7 +18,8 @@ services:
     networks:
       - pwikinet
     volumes:
-        - ./pwiki-back/others/init.sql:/data/application/init.sql
+        - ./database/init.sql:/data/application/init.sql
+        - ./database/mysql:/var/lib/mysql
     command: --init-file /data/application/init.sql
     deploy:
       resources:
@@ -34,8 +35,8 @@ services:
     restart: on-failure
     environment:
       NODE_ENV: production
-    # ports:
-    #   - 3000:3000
+    ports:
+      - 3000:3000
     networks:
       - pwikinet
     depends_on:

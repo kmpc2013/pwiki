@@ -81,7 +81,7 @@
   position: relative;
 }
 
-.search-container .icon-search{
+.search-container .icon-search {
   position: absolute;
   top: 6px;
   right: 30px;
@@ -94,7 +94,22 @@
   border-radius: 100px;
   border: 2px solid var(--p01);
 }
+section {
+  display: table;
+}
 
-div {
+.button-row {
+  display: table-cell;
+  max-width: 600px;
+  height: 15px;
+}
+
+.button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+  height: 30px;
+}
+
+.container {
   padding-bottom: 100px;
 }
+

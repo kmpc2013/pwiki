@@ -1,0 +1,48 @@
+<div class="container">
+  <h2>Documentos</h2>
+  <div class="search-container">
+    <form>
+      <figure>
+        <img
+          class="icon-search"
+          src="assets/icons/search.svg"
+          alt="Icone de lupa para pesquisa"
+          onclick="handleKeyPress($event)"
+          style="cursor: pointer"
+        />
+        <input
+          type="text"
+          placeholder="Buscar documento"
+          (input)="search($event)"
+          (keydown)="handleKeyPress($event)"
+        />
+      </figure>
+    </form>
+  </div>
+  <details *ngFor="let item of arrayFiltered">
+    <summary>
+      <p class="itemType" [style.background]="setTypeDocColor(item.type)">
+        {{ item.type }}
+      </p>
+      <p class="itemTitle">
+        {{ item.title }}
+      </p>
+      <section>
+        <div class="button-row">
+          <button mat-flat-button color="primary" (click)="openDialogEdit(item.id, item.title)">
+            Edit
+          </button>
+          <button
+            mat-flat-button
+            color="warn"
+            (click)="openDialogDelete(item.id, item.title)"
+          >
+            Remove
+          </button>
+        </div>
+      </section>
+    </summary>
+    <article [innerHTML]="item.descr"></article>
+    <a [href]="item.link" target="_blank" class="saibaMaisButton">Saiba mais</a>
+  </details>
+</div>

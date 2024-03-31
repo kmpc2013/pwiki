@@ -1,8 +1,6 @@
-import { Component, signal } from '@angular/core';
-import { IProjects } from '../../interface/IProjects.interface';
+import { Component } from '@angular/core';
 import { BackService } from '../../services/back.service';
 import { IDocuments } from '../../interface/IDocuments.interface';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
