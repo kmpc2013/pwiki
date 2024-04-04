@@ -17,14 +17,21 @@ export class BackService {
       .pipe(retry(2));
   }
 
-  public deleteDocs(id: number): Observable<IDocuments[]> {
+  public deleteDocs(id: Number): Observable<IDocuments[]> {
     return this.http
       .delete<IDocuments[]>(`${this.SERVER_URL}/pwiki/${id}`)
       .pipe(retry(2));
   }
 
-  public editDocs(id: number): Observable<IDocuments[]> {
+  public editDocs(documents: IDocuments): Observable<IDocuments[]> {
     return this.http
-      .post<IDocuments[]>(`${this.SERVER_URL}/pwiki/${id}`,{});
+      .put<IDocuments[]>(`${this.SERVER_URL}/pwiki/${documents.id}`,documents)
+      .pipe(retry(2));
+  }
+
+  public createDocs(documents: IDocuments): Observable<IDocuments[]> {
+    return this.http
+      .post<IDocuments[]>(`${this.SERVER_URL}/pwiki`,documents)
+      .pipe(retry(2));
   }
 }

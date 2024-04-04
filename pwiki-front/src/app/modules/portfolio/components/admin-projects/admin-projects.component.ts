@@ -1,18 +1,15 @@
-import { Component, Inject, TemplateRef } from '@angular/core';
+import { Component, Inject, inject, TemplateRef } from '@angular/core';
 import { BackService } from '../../services/back.service';
 import { IDocuments } from '../../interface/IDocuments.interface';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import {
-  MAT_DIALOG_DATA,
-  MatDialog,
-  MatDialogActions,
-  MatDialogContent,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
-import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
+import { EDialogPanelClass } from '../../enum/EDialogPanelClass.enum';
+import { EditProjectsComponent } from '../dialog/edit-projects/edit-projects.component';
+import { DeleteProjectsComponent } from '../dialog/delete-projects/delete-projects.component';
+import { CreateProjectsComponent } from '../dialog/create-projects/create-projects.component';
 
 export interface DialogData {
   id: number;
@@ -29,11 +26,9 @@ export interface DialogData {
 export class AdminProjectsComponent {
   public arrayFiltered: IDocuments[] = [];
   public arrayProjects: IDocuments[] = [];
+  #dialog = inject(MatDialog);
 
-  constructor(
-    private BackService: BackService,
-    public dialog: MatDialog,
-  ) {}
+  constructor(private BackService: BackService, public dialog: MatDialog) {}
 
   search(e: Event) {
     const target = e.target as HTMLInputElement;
@@ -76,74 +71,24 @@ export class AdminProjectsComponent {
     }
   }
 
-  openDialogEdit(id: Number, doc: String): void {
-    const dialogRef = this.dialog.open(DialogEditDialog, {
-      data: { id: id, title: doc },
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+  public openDialogEdit(data: IDocuments) {
+    this.#dialog.open(EditProjectsComponent, {
+      data,
+      panelClass: EDialogPanelClass.PROJECTS,
     });
   }
 
-  openDialogDelete(id: Number, doc: String): void {
-    const dialogRef = this.dialog.open(DialogDelete, {
-      data: { id: id, title: doc },
-    });
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
+  public openDialogDelete(data: IDocuments) {
+    this.#dialog.open(DeleteProjectsComponent, {
+      data,
+      panelClass: EDialogPanelClass.PROJECTS,
     });
   }
-}
-@Component({
-  selector: 'dialog-delete',
-  templateUrl: 'dialog-delete.html',
-  standalone: true,
-  imports: [MatButtonModule, MatDialogActions, MatDialogContent],
-})
-export class DialogDelete {
-  constructor(
-    public dialogRef: MatDialogRef<DialogDelete>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private BackService: BackService
-  ) {}
 
-  public arrayProjects: IDocuments[] = [];
-  public arrayFiltered: IDocuments[] = [];
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-  deleteDoc(id: number): void {
-    this.dialogRef.close();
-    this.BackService.deleteDocs(id).subscribe()
-    window.location.reload()
-  }
-}
-@Component({
-  selector: 'dialog-edit',
-  templateUrl: 'dialog-edit.html',
-  standalone: true,
-  imports: [MatButtonModule, MatDialogActions, MatDialogContent],
-})
-export class DialogEditDialog {
-  constructor(
-    public dialogRef: MatDialogRef<DialogEditDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
-    private BackService: BackService,
-    private formBuilder: UntypedFormBuilder
-  ) {}
-
-  public arrayProjects: IDocuments[] = [];
-  public arrayFiltered: IDocuments[] = [];
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-  editDoc(): void {
-    this.dialogRef.close();
-    // this.BackService.editDocs(this.formGroup.value).subscribe()
-    window.location.reload()
+  public openDialogCreate(event: Event) {
+    event.preventDefault();
+    this.#dialog.open(CreateProjectsComponent, {
+      panelClass: EDialogPanelClass.PROJECTS,
+    });
   }
 }

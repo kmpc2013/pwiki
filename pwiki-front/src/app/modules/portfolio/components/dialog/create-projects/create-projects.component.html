@@ -1,0 +1,78 @@
+<header>
+  <h2 mat-dialog-title class="Title">Criando Documento</h2>
+  <button (click)="closeModal()">
+    <img
+      class="closeButton"
+      src="assets/icons/close.svg"
+      alt="Botão para fechar o dialogo"
+      height="20px"
+      width="20px"
+    />
+  </button>
+</header>
+<h3 class="subTitle">Insira as informações abaixo:</h3>
+<form [formGroup]="formGroup" (ngSubmit)="salvar()">
+  <div class="formDiv">
+    <table>
+      <tr>
+        <td class="formName">Título:</td>
+        <td>
+          <input
+            class="formInput"
+            formControlName="title"
+            placeholder="..."
+            type="text"
+            required
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="formName">Tipo:</td>
+        <td>
+          <input
+            class="formInput"
+            formControlName="type"
+            placeholder="Paper, Procedimento, ..."
+            type="text"
+            required
+          />
+        </td>
+      </tr>
+      <tr>
+        
+        <td class="formName">Descrição:</td>
+        <td>
+          <input mat-form-field
+            class="formInput"
+            formControlName="descr"
+            placeholder="..."
+            type="text"
+            required
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="formName">Link:</td>
+        <td>
+          <input
+            class="formInput"
+            formControlName="link"
+            placeholder="..."
+            type="text"
+            required
+          />
+        </td>
+      </tr>
+    </table>
+  </div>
+  <button
+    mat-stroked-button
+    color="primary"
+    type="button"
+    class="btn btn-outline-dark"
+    [disabled]="!formGroup.valid"
+    (click)="salvar()"
+  >
+    Save
+  </button>
+</form>

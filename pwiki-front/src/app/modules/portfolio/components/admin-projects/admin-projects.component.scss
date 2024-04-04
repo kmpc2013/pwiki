@@ -72,6 +72,7 @@
 }
 
 .search-container {
+  display: flex;
   margin-bottom: 5px;
   width: 100%;
 }
@@ -79,21 +80,28 @@
 .search-container form {
   width: 100%;
   position: relative;
+  align-items: center;
 }
 
 .search-container .icon-search {
   position: absolute;
-  top: 6px;
-  right: 30px;
+  top: 20px;
+  left: 75%
 }
 
 .search-container input {
   padding: 0.5em;
-  width: 100%;
+  width: 80%;
   text-align: left;
   border-radius: 100px;
   border: 2px solid var(--p01);
 }
+
+.button-create {
+  margin: 0 0 0 15px;
+  height: 30px;
+}
+
 section {
   display: table;
 }
@@ -113,3 +121,12 @@ section {
   padding-bottom: 100px;
 }
 
+@media (max-width: 700px) {
+  .button-create {
+    margin: 10px 0 0 15px;
+    height: 30px;
+  }
+  .search-container .icon-search {
+    left: 70%
+  }
+}

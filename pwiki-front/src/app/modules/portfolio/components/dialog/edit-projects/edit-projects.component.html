@@ -1,0 +1,80 @@
+<header>
+  <h2 mat-dialog-title>{{ getData()?.title }}</h2>
+  <button (click)="closeModal()">
+    <img
+      src="assets/icons/close.svg"
+      alt="Botão para fechar o dialogo"
+      height="20px"
+      width="20px"
+    />
+  </button>
+</header>
+<h3>
+  {{ getData()?.title }}
+</h3>
+<form [formGroup]="formGroup" (ngSubmit)="salvar()">
+  <div class="formDiv">
+    <table>
+      <tr>
+        <td class="formName">Título:</td>
+        <td>
+          <input
+            class="formInput"
+            formControlName="title"
+            placeholder="..."
+            type="text"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="formName">Tipo:</td>
+        <td>
+          <input
+            class="formInput"
+            formControlName="type"
+            placeholder="Paper, Procedimento, ..."
+            type="text"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="formName">Descrição:</td>
+        <td>
+          <input
+            class="formInput"
+            formControlName="descr"
+            placeholder="..."
+            type="text"
+            required
+          />
+        </td>
+        <td class="requiredIcon">*</td>
+      </tr>
+      <tr>
+        <td class="formName">Link:</td>
+        <td>
+          <input
+            class="formInput"
+            formControlName="link"
+            placeholder="..."
+            type="text"
+            required
+          />
+        </td>
+        <td class="requiredIcon">*</td>
+      </tr>
+    </table>
+  </div>
+  <button
+    mat-raised-button
+    type="button"
+    class="btn btn-outline-dark"
+    [disabled]="!formGroup.valid"
+    (click)="salvar()"
+  >
+    Save
+  </button>
+</form>
+<mat-dialog-content>
+  <article [innerHTML]="getData()?.type"></article>
+</mat-dialog-content>

@@ -3,6 +3,12 @@
   <div class="search-container">
     <form>
       <figure>
+        <input
+          type="text"
+          placeholder="Buscar documento"
+          (input)="search($event)"
+          (keydown)="handleKeyPress($event)"
+        />
         <img
           class="icon-search"
           src="assets/icons/search.svg"
@@ -10,12 +16,9 @@
           onclick="handleKeyPress($event)"
           style="cursor: pointer"
         />
-        <input
-          type="text"
-          placeholder="Buscar documento"
-          (input)="search($event)"
-          (keydown)="handleKeyPress($event)"
-        />
+        <button class="button-create" mat-flat-button color="accent" (click)="openDialogCreate($event)">
+          Create
+        </button>
       </figure>
     </form>
   </div>
@@ -29,13 +32,13 @@
       </p>
       <section>
         <div class="button-row">
-          <button mat-flat-button color="primary" (click)="openDialogEdit(item.id, item.title)">
+          <button mat-flat-button color="primary" (click)="openDialogEdit(item)">
             Edit
           </button>
           <button
             mat-flat-button
             color="warn"
-            (click)="openDialogDelete(item.id, item.title)"
+            (click)="openDialogDelete(item)"
           >
             Remove
           </button>
