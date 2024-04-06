@@ -16,12 +16,13 @@
     <table>
       <tr>
         <td class="formName">Título:</td>
-        <td>
+        <td class="tdInput">
           <input
             class="formInput"
             formControlName="title"
-            placeholder="..."
+            placeholder="Título do seu documento..."
             type="text"
+            maxlength="45"
             required
           />
         </td>
@@ -29,24 +30,27 @@
       <tr>
         <td class="formName">Tipo:</td>
         <td>
-          <input
+          <select
+            matNativeControl
             class="formInput"
             formControlName="type"
-            placeholder="Paper, Procedimento, ..."
-            type="text"
-            required
-          />
+          >
+            <option value="Paper">Paper</option>
+            <option value="Procedimento">Procedimento</option>
+            <option value="Projeto">Projeto</option>
+          </select>
         </td>
       </tr>
       <tr>
-        
         <td class="formName">Descrição:</td>
         <td>
-          <input mat-form-field
+          <input
+            mat-form-field
             class="formInput"
             formControlName="descr"
-            placeholder="..."
+            placeholder="Este documente se refere à..."
             type="text"
+            maxlength="400000000"
             required
           />
         </td>
@@ -57,8 +61,9 @@
           <input
             class="formInput"
             formControlName="link"
-            placeholder="..."
+            placeholder="https://..."
             type="text"
+            maxlength="60000"
             required
           />
         </td>

@@ -17,9 +17,9 @@ export class BackService {
       .pipe(retry(2));
   }
 
-  public deleteDocs(id: Number): Observable<IDocuments[]> {
+  public deleteDocs(documents: IDocuments): Observable<IDocuments[]> {
     return this.http
-      .delete<IDocuments[]>(`${this.SERVER_URL}/pwiki/${id}`)
+      .delete<IDocuments[]>(`${this.SERVER_URL}/pwiki/${documents.id}`)
       .pipe(retry(2));
   }
 

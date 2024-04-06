@@ -11,11 +11,6 @@ import { EditProjectsComponent } from '../dialog/edit-projects/edit-projects.com
 import { DeleteProjectsComponent } from '../dialog/delete-projects/delete-projects.component';
 import { CreateProjectsComponent } from '../dialog/create-projects/create-projects.component';
 
-export interface DialogData {
-  id: number;
-  title: string;
-}
-
 @Component({
   selector: 'app-admin-projects',
   standalone: true,
@@ -65,9 +60,9 @@ export class AdminProjectsComponent {
 
   public handleKeyPress(event: any) {
     if (event.key === 'Enter') {
-      event.preventDefault(); // Impede a ação padrão do evento (atualização da tela)
+      event.preventDefault(); 
       console.log('handleKeyPress');
-      this.search(event); // Chama a função de busca
+      this.search(event); 
     }
   }
 

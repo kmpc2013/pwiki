@@ -1,62 +1,58 @@
-::ng-deep .dialog-container-projects .mdc-dialog__container {
-    width: 850px;
-  }
-  
-  :host {
+:host {
     padding: 10px 30px;
     display: flex;
     flex-direction: column;
-  
-    header,
-    h3,
-    p,
-    mat-dialog-content {
+  }
+  header,
+  h3,
+  p,
+  mat-dialog-content {
+    padding: 0;
+    margin: 0 0 15px;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      font-size: 22px;
       padding: 0;
-      margin: 0 0 15px;
+      margin: 0;
+      color: var(black);
     }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      h2 {
-        font-size: 22px;
-        padding: 0;
-        margin: 0;
-        color: var(--black-010);
-      }
-      button {
-        background: none;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-      }
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
     }
-    h3 {
-      font-size: 18px;
-      color: var(--black-010);
+  }
+  .formDiv {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-bottom: 15px;
+    table {
+      width: 100%;
     }
-    article {
-      margin-bottom: 15px;
-      p {
-        font-size: 16px;
-      }
-    }
-    nav {
-      display: flex;
-    }
-    mat-dialog-actions{
-      button{
-        padding: 10px;
-        border-radius: 100px;
-        border: 2px solid var(--p01);
-        transition: 0.5s;
-        cursor: pointer;
-        background: none;
-        &:hover {
-          background: var(--p05);
-          transition: 1s;
-        }
-      }
-    }
+  }
+  .formName {
+    font-size: 15px;
+    padding: 10px 50px 0 20px;
+    width: 230px;
+  }
+  .formInput {
+    margin: 10px 20px 0 0;
+    font-size: 15px;
+    width: 100%;
+  }
+  .requiredIcon {
+    color: red;
+    padding: 5px;
+  }
+  button {
+    display: flex;
+    margin: 15px;
+    float: right;
   }
   

@@ -1,5 +1,5 @@
 export interface IDocuments {
-  id: number;
+  id: Number;
   title: string;
   type: string;
   descr: string;

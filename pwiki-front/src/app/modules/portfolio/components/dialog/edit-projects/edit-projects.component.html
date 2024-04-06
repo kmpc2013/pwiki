@@ -9,9 +9,6 @@
     />
   </button>
 </header>
-<h3>
-  {{ getData()?.title }}
-</h3>
 <form [formGroup]="formGroup" (ngSubmit)="salvar()">
   <div class="formDiv">
     <table>
@@ -21,20 +18,24 @@
           <input
             class="formInput"
             formControlName="title"
-            placeholder="..."
+            placeholder="Título do seu documento..."
             type="text"
+            maxlength="45"
           />
         </td>
       </tr>
       <tr>
         <td class="formName">Tipo:</td>
         <td>
-          <input
-            class="formInput"
-            formControlName="type"
-            placeholder="Paper, Procedimento, ..."
-            type="text"
-          />
+          <select
+          matNativeControl
+          class="formInput"
+          formControlName="type"
+        >
+          <option value="Paper">Paper</option>
+          <option value="Procedimento">Procedimento</option>
+          <option value="Projeto">Projeto</option>
+        </select>
         </td>
       </tr>
       <tr>
@@ -43,12 +44,11 @@
           <input
             class="formInput"
             formControlName="descr"
-            placeholder="..."
+            placeholder="Este documente se refere à..."
             type="text"
-            required
+            maxlength="4000000000"
           />
         </td>
-        <td class="requiredIcon">*</td>
       </tr>
       <tr>
         <td class="formName">Link:</td>
@@ -56,8 +56,9 @@
           <input
             class="formInput"
             formControlName="link"
-            placeholder="..."
+            placeholder="https://..."
             type="text"
+            maxlength="60000"
             required
           />
         </td>
@@ -66,15 +67,12 @@
     </table>
   </div>
   <button
-    mat-raised-button
+  mat-stroked-button color="primary"
     type="button"
-    class="btn btn-outline-dark"
+    class="btn btn-outline-primary"
     [disabled]="!formGroup.valid"
     (click)="salvar()"
   >
     Save
   </button>
 </form>
-<mat-dialog-content>
-  <article [innerHTML]="getData()?.type"></article>
-</mat-dialog-content>

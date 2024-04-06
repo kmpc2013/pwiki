@@ -9,12 +9,14 @@ import {
 import { CommonModule } from '@angular/common';
 import { BackService } from '../../../services/back.service';
 import { MatSnackBar } from "@angular/material/snack-bar";
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 @Component({
   selector: 'app-edit-projects',
   standalone: true,
-  imports: [MatDialogModule, CommonModule, ReactiveFormsModule],
+  imports: [MatDialogModule, CommonModule, ReactiveFormsModule, MatButtonModule],
   templateUrl: './edit-projects.component.html',
   styleUrl: './edit-projects.component.scss'
 })
@@ -34,11 +36,11 @@ export class EditProjectsComponent {
   ngOnInit(): void {
     this.getData.set(this._data);
     this.formGroup = this.formBuilder.group({
-      id: [''],
-      title: [''],
-      type: [''],
-      descr: [''],
-      link: ['']
+      id: this.getData()!.id,
+      title: this.getData()!.title,
+      type: this.getData()!.type,
+      descr: this.getData()!.descr,
+      link: this.getData()!.link,
     });
   }
 

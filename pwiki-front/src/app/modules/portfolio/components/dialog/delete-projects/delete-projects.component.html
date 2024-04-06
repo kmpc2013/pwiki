@@ -1,10 +1,10 @@
 <mat-dialog-content>
   <p>Do you confirm delete this doc?</p>
   <p>
-    <strong>{{ data.title }}</strong>
+    <strong>{{ getData()?.title }}</strong>
   </p>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-flat-button color="warn" (click)="deleteDoc(data.id)">Yes</button>
+  <button mat-flat-button color="primary" (click)="onNoClick()">No Thanks</button>
+  <button mat-flat-button color="warn" (click)="deleteDoc()">Yes</button>
 </mat-dialog-actions>

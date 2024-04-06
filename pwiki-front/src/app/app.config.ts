@@ -5,9 +5,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { HttpClientModule } from '@angular/common/http';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { FormsModule } from '@angular/forms';
-import {MatInputModule} from '@angular/material/input';
-
-
+import { MatInputModule } from '@angular/material/input';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,6 +14,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(HttpClientModule),
     BsModalService,
     FormsModule,
-    MatInputModule
+    MatInputModule,
   ],
 };

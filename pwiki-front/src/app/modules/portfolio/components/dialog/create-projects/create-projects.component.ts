@@ -5,20 +5,11 @@ import {
   MatDialogRef,
 } from '@angular/material/dialog';
 import { IDocuments } from '../../../interface/IDocuments.interface';
-import {
-  FormBuilder,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BackService } from '../../../services/back.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-create-projects',
@@ -28,11 +19,6 @@ import { MatInputModule } from '@angular/material/input';
     CommonModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatDividerModule,
-    MatIconModule,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
   ],
   templateUrl: './create-projects.component.html',
   styleUrl: './create-projects.component.scss',

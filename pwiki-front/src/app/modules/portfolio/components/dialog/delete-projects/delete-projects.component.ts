@@ -7,7 +7,6 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { BackService } from '../../../services/back.service';
-import { DialogData } from '../../admin-projects/admin-projects.component';
 import { IDocuments } from '../../../interface/IDocuments.interface';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -25,7 +24,6 @@ export class DeleteProjectsComponent {
   
   constructor(
     public dialogRef: MatDialogRef<DeleteProjectsComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
     private backService: BackService,
     private formBuilder: FormBuilder,
     public matSnackBar: MatSnackBar,
@@ -51,9 +49,9 @@ export class DeleteProjectsComponent {
     this.dialogRef.close();
   }
 
-  deleteDoc(id: number) {
-    console.log(id);
-    this.backService.deleteDocs(id).subscribe({
+  deleteDoc() {
+    console.log(this.formGroup.value);
+    this.backService.deleteDocs(this.formGroup.value).subscribe({
       next: (addEntry) => {
         window.location.reload();
         alert('Deletado com sucesso!');
