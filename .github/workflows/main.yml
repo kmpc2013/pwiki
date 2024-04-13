@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: pwiki-back/
+        working-directory: ./pwiki-back
 
     strategy:
       matrix:
@@ -25,5 +25,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm start
-    - run: npm test
+        cache-dependency-path: './pwiki-back/yarn.lock'
+    - run: yarn start
+    - run: yarn test
