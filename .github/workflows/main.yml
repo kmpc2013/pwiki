@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./pwiki-back
 
     strategy:
       matrix:
@@ -23,6 +26,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm start
-      working-directory: ./pwiki-back
     - run: npm test
-      working-directory: ./pwiki-back
