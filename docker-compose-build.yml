@@ -29,6 +29,7 @@ services:
           memory: 50M
 
   pwikiback:
+    build: ./pwiki-back
     image: kmpc2013/pwikiback:v1
     container_name: pwikiback
     restart: on-failure
@@ -48,6 +49,7 @@ services:
           memory: 50M
   
   pwikifront:
+    build: ./pwiki-front
     image: kmpc2013/pwikifront:v1
     container_name: pwikifront
     restart: on-failure
