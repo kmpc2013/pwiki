@@ -28,12 +28,6 @@
   <img src="https://github.com/kmpc2013/pwiki/assets/53223968/36045bf1-a32a-4860-baaa-d2c090efe875" alt="Exemplo 3">
 </p>
 
-### <p align="center">Como Contribuir</p>
-
-<p align="center">
-  P/WIKI não visa lucro; é uma iniciativa comunitária para capacitar profissionais de TI a demonstrar suas habilidades de forma eficaz por meio de portfólios interativos. Se você deseja contribuir para o P/WIKI, sinta-se à vontade para abrir problemas, enviar solicitações de recebimento ou sugerir melhorias. Sua colaboração é fundamental para ajudar a comunidade de TI a prosperar!
-</p>
-
 ## <p align="center">Utilização</p>
 ### <p align="center">Docker</p>
 Para utilizar a aplicação via docker, basta ter a Docker Engine e o Docker Compose instalado na maquina que iniciará os containeres. Caso tenha dúvidas de como realizar a instalação aqui estão dois links para auxilialo:
@@ -60,3 +54,9 @@ Após finalizar a edição, precisará realizar o build da aplicação e gerar s
 ```
 docker compose -f "docker-compose-build.yml" up -d --build
 ```
+
+### <p align="center">Como Contribuir</p>
+
+<p align="center">
+  P/WIKI não visa lucro; é uma iniciativa comunitária para capacitar profissionais de TI a demonstrar suas habilidades de forma eficaz por meio de portfólios interativos. Se você deseja contribuir para o P/WIKI, sinta-se à vontade para abrir problemas, enviar solicitações de recebimento ou sugerir melhorias. Sua colaboração é fundamental para ajudar a comunidade de TI a prosperar!
+</p>
