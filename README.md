@@ -33,3 +33,25 @@
 <p align="center">
   P/WIKI não visa lucro; é uma iniciativa comunitária para capacitar profissionais de TI a demonstrar suas habilidades de forma eficaz por meio de portfólios interativos. Se você deseja contribuir para o P/WIKI, sinta-se à vontade para abrir problemas, enviar solicitações de recebimento ou sugerir melhorias. Sua colaboração é fundamental para ajudar a comunidade de TI a prosperar!
 </p>
+
+## <p align="center">Utilização</p>
+### <p align="center">Docker</p>
+Para utilizar a aplicação via docker, basta ter a Docker Engine e o Docker Compose instalado na maquina que iniciará os containeres. Caso tenha dúvidas de como realizar a instalação aqui estão dois links para auxilialo:
+- **Docker engine**: https://docs.docker.com/engine/install/
+- **Docker compose**: https://docs.docker.com/compose/install/
+
+Após as devidas instalações, basta baixar o arquivo **docker-compose.yml** presente na raiz desse projeto, ou clicando diretamente neste link: https://raw.githubusercontent.com/kmpc2013/pwiki/main/docker-compose.yml
+Entre no diretório em que baixou o arquivo via linha de comando, seja Linux ou Windows e execute o comando:
+```
+docker compose up -d
+```
+
+Isso instanciara tres containers:
+- **pwikidatabase**: MySQL servido como banco de dados da aplicação
+- **pwikiback**: Node.JS servindo como backend da aplicação, sendo acessivel via API
+- **pwikifront**: Angular com o portar administrativo da aplicação bem como um modelo de portfólio
+
+Caso queira utilizar o modelo de portfólio, precisará baixar todo o projeto do git e acessar editar os seguintes arquivos conforme necessidade:
+- **index.html**: Para ajustar o título da página
+- **aboutme.component.html**: Para editar as informações pessoais
+- **experiences.component.ts**: Para editar as experiencias profissionais
