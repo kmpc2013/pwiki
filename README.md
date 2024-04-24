@@ -51,7 +51,12 @@ Isso instanciara tres containers:
 - **pwikiback**: Node.JS servindo como backend da aplicação, sendo acessivel via API
 - **pwikifront**: Angular com o portar administrativo da aplicação bem como um modelo de portfólio
 
-Caso queira utilizar o modelo de portfólio, precisará baixar todo o projeto do git e acessar editar os seguintes arquivos conforme necessidade:
+Caso queira utilizar o modelo de portfólio, precisará baixar todo o projeto do git e editar os seguintes arquivos conforme necessidade:
 - **index.html**: Para ajustar o título da página
 - **aboutme.component.html**: Para editar as informações pessoais
 - **experiences.component.ts**: Para editar as experiencias profissionais
+
+Após finalizar a edição, precisará realizar o build da aplicação e gerar suas próprias imagens do docker:
+```
+docker compose -f "docker-compose-build.yml" up -d --build
+```
